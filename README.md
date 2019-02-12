@@ -1,10 +1,8 @@
-# How to test this demo 
-
-This code contain 2 parts 
-## Socket Server 
+ 
+## Running Socket Server 
 
 Run `node Server/RealTimeServer.js ` to run the socket server on localhost:3000  
-## Angular Demo
+## Running Angular Demo
 
 Run `ng install ` to install node modules, `ng serve` to serve the angular application 
 
