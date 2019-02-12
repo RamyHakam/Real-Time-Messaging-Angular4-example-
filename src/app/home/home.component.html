@@ -190,32 +190,31 @@
                         <div *ngFor="let message of ChatArray" class="direct-chat-messages" style="height:90px;">
                           <!-- Message. Default to the left -->
                           
-                          <div *ngIf="message=='User'"   class="direct-chat-msg">
+                          <div *ngIf="message.user=='User'"   class="direct-chat-msg">
                             <div class="direct-chat-info clearfix">
                               <span class="direct-chat-name pull-left">User Name </span>
-                              <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
                             </div>
                             <!-- /.direct-chat-info -->
                             <img class="direct-chat-img" src="assets/dist/img/user2-160x160.jpg" alt="message user image">
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                             سلام عليكم يا سيرفر
+                             {{message.message}}
                             </div>
                             <!-- /.direct-chat-text -->
                           </div>
                           <!-- /.direct-chat-msg -->
       
                           <!-- Message to the right -->
-                          <div *ngIf="message=='Admin'" class="direct-chat-msg right">
+                          <div *ngIf="message.user=='Admin'" class="direct-chat-msg right">
                             <div class="direct-chat-info clearfix">
-                              <span class="direct-chat-name pull-right">ٍِِThe Server</span>
+                              <span class="direct-chat-name pull-right">The Server</span>
                               <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
                             </div>
                             <!-- /.direct-chat-info -->
                             <img class="direct-chat-img" src="assets/dist/img/user3-128x128.jpg" alt="message user image">
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text" style="direction:rtl">
-                             عليكم السلام اتفضل يا عرب 
+                              {{message.message}}
                             </div>
                             <!-- /.direct-chat-text -->
                           </div>

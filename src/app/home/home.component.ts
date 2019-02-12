@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 CountMyMessages : number= 0;
 CountServerMessages:number=0;
-ChatArray :Array<string>=[];
+ChatArray :Array<{}>=[];
+message={};
 
 constructor( private myWS : RealTimeService ) {
 this.myWS.getFromEvent().subscribe(
@@ -17,9 +18,9 @@ this.myWS.getFromEvent().subscribe(
 
 
  this.CountServerMessages+=1; 
-  let sound =new Audio("assets/dist/sound/User.wav");
-sound.play();  
-this.ChatArray.push("Admin");
+ 
+ //adding server message to the chat array
+this.ChatArray.push(result);
 
 },
   error=>{console.log(error)});
@@ -28,13 +29,13 @@ this.ChatArray.push("Admin");
 
 
 
-
+//sending event every 5s 
   ngOnInit() {
-    setInterval(()=>{this.myWS.SendME("What is Up Server !!");
-  this.CountMyMessages+=1;
-    this.ChatArray.push("User");
-
-  },6000);
+    this.message={'user':'User','message':'Ping Socket server'}
+    setInterval(()=>{this.myWS.SendME(this.message);
+    this.CountMyMessages+=1;
+    this.ChatArray.push(this.message);
+  },5000);
   
   }
 
